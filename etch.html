@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+
+<html>
+
+  <head>
+    <title>Etching and Sketching</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+
+  <body>
+    <h1>Don't have too much fun now -.-</h1>
+    <div id="container-etch"></div>
+
+  </body>
+
+  <script>
+    const etch = document.querySelector('#container-etch');
+    const grid = document.createElement('div');
+    grid.setAttribute("id", "grid");
+
+    for (let i = 0; i < 16; i++) {
+      let row = document.createElement('div');
+      row.setAttribute("id", "row");
+      row.setAttribute("class", "inline")
+      for (let j = 0; j < 16; j++) {
+      let square = document.createElement('div');
+      square.setAttribute("id", "square");
+      square.setAttribute("class", "box")
+      row.appendChild(square);
+      };
+      grid.appendChild(row);
+    };
+
+    etch.appendChild(grid);
+
+    let button = document.querySelector('button');
+    button.addEventListener('click', function(e) {
+      console.log(e);
+    });
+
+    let squares = document.querySelectorAll("#square");
+    squares.forEach( function(square) {
+      square.addEventListener('mouseover', function(e) {
+        square.setAttribute("style", "background-color: black;");
+      });
+    });
+  </script>
+
+</html>
